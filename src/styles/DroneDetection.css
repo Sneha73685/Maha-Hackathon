@@ -1,0 +1,286 @@
+/* styles/DroneDetection.css */
+/* Import this in your component or main CSS file */
+
+.drone-detection-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .drone-detection-container h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .detection-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .detection-tabs button {
+    background: none;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #7f8c8d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .detection-tabs button:hover {
+    color: #3498db;
+  }
+  
+  .detection-tabs button.active {
+    color: #3498db;
+    font-weight: 600;
+  }
+  
+  .detection-tabs button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #3498db;
+  }
+  
+  .error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  /* Webcam Section */
+  .webcam-section h2,
+  .image-upload-section h2,
+  .video-upload-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .stream-container {
+    width: 100%;
+    height: 480px;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 2px solid #e0e0e0;
+  }
+  
+  .webcam-stream {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .stream-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #eaeaea;
+    color: #7f8c8d;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .stream-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .start-button, .stop-button, .detect-button, .process-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .start-button {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .start-button:hover:not(:disabled) {
+    background-color: #27ae60;
+  }
+  
+  .stop-button {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .stop-button:hover:not(:disabled) {
+    background-color: #c0392b;
+  }
+  
+  .detect-button, .process-button {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .detect-button:hover:not(:disabled), .process-button:hover:not(:disabled) {
+    background-color: #2980b9;
+  }
+  
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Image Upload Section */
+  .file-input-container {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+  }
+  
+  .detection-results {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .detection-results h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .result-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .result-image {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 0.25rem;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .detection-stats {
+    text-align: center;
+    color: #2c3e50;
+  }
+  
+  .midpoints-list {
+    margin-top: 1rem;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .midpoints-list h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .midpoints-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .midpoints-list li {
+    padding: 0.5rem;
+    background-color: #edf2f7;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+  }
+  
+  /* Video Upload Section */
+  .processing-message {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: #e8f4fd;
+    border-radius: 0.25rem;
+    color: #3498db;
+  }
+  
+  .video-results {
+    margin-top: 2rem;
+  }
+  
+  .video-player-container {
+    margin: 1.5rem 0;
+  }
+  
+  .processed-video {
+    width: 100%;
+    max-height: 500px;
+    border-radius: 0.25rem;
+    background-color: #000;
+  }
+  
+  .download-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 1rem auto;
+    transition: background-color 0.3s ease;
+  }
+  
+  .download-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .stream-container {
+      height: 360px;
+    }
+    
+    .detection-tabs button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .start-button, .stop-button, .detect-button, .process-button {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  }
