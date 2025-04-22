@@ -1,15 +1,17 @@
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield, Lock, User } from "lucide-react";
 import { toast } from "sonner";
 
-export function PersonnelLoginForm() {
+interface PersonnelLoginFormProps {
+  onLoginSuccess: () => void;
+}
+
+export function PersonnelLoginForm({ onLoginSuccess }: PersonnelLoginFormProps) {
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,7 +24,7 @@ export function PersonnelLoginForm() {
         description: "Welcome to DomeWatch Monitoring System"
       });
       localStorage.setItem("userRole", "personnel");
-      navigate("/dashboard");
+      onLoginSuccess();
     }, 1500);
   };
 

@@ -21,6 +21,10 @@ export default function Login() {
     }
   }, [location]);
   
+  const handleLoginSuccess = () => {
+    navigate("/dashboard");
+  };
+  
   return (
     <div className="flex min-h-screen items-center justify-center bg-dome-dark p-4">
       <div className="absolute inset-0 overflow-hidden">
@@ -58,11 +62,11 @@ export default function Login() {
           </TabsList>
           
           <TabsContent value="operator">
-            <OperatorLoginForm />
+            <OperatorLoginForm onLoginSuccess={handleLoginSuccess} />
           </TabsContent>
           
           <TabsContent value="personnel">
-            <PersonnelLoginForm />
+            <PersonnelLoginForm onLoginSuccess={handleLoginSuccess} />
           </TabsContent>
         </Tabs>
         

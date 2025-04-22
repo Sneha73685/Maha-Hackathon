@@ -2,7 +2,8 @@
 // Place this in your frontend project's services directory
 
 const API_BASE_URL = 'http://localhost:8000'; // Change this to match your backend server URL
-
+let streamActive = false;
+let streamImage = null;
 /**
  * DomeWatch API Service
  * Handles all communication with the backend services
@@ -83,12 +84,31 @@ class DomeWatchAPI {
    */
   async startWebcamStream() {
     try {
-      const response = await fetch(`${API_BASE_URL}/stream/start`);
-      return await response.json();
-    } catch (error) {
-      console.error('Failed to start stream:', error);
-      throw new Error('Unable to start webcam stream');
-    }
+      
+            // Start the stream on the server
+            await fetch('/stream/start');
+            
+            // Create image element if it doesn't exist
+            if (!streamImage) {
+                streamImage = document.createElement('img');
+                streamImage.className = 'webcam-feed';
+                streamImage.alt = 'Webcam Feed';
+            }
+            
+            // Set the source with cache-busting parameter
+            streamImage.src = '/stream/webcam?t=' + new Date().getTime();
+            
+            // Replace placeholder with stream
+            const streamContainer = document.getElementById('stream-container');
+            streamContainer.innerHTML = '';
+            streamContainer.appendChild(streamImage);
+            
+            streamActive = true;
+        } catch (error) {
+            console.error('Error starting stream:', error);
+            alert('Error starting webcam stream');
+            stopWebcamStream();
+        }
   }
 
   /**

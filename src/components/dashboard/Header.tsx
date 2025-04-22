@@ -1,7 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { BellRing, ChevronDown, Menu, ShieldAlert, Radio, User } from "lucide-react";
+import { ThemeLanguageControls } from "@/components/ThemeLanguageControls";
 import { cn } from "@/lib/utils";
 import {
   DropdownMenu,
@@ -73,6 +73,7 @@ export function Header({ className, onMenuClick, userRole = "operator" }: Header
           </div>
         </div>
         <div className="flex items-center space-x-4">
+          <ThemeLanguageControls />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button 
