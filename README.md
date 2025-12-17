@@ -48,7 +48,7 @@ Edit
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/Sneha73685/DomeWatch.git
+   git clone https://github.com/Sneha73685/Maha-Hackathon.git
    cd DomeWatch
 Install the required dependencies:
 
