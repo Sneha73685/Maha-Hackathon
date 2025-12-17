@@ -91,12 +91,6 @@ Special thanks to the open-source community, especially contributors of the YOLO
 License
 This project is licensed under the MIT License.
 
-vbnet
-Copy
-Edit
-
-You can copy this and paste it directly into your GitHub repo’s `README.md` file. Let me know if you'd like to add demo images, a video walkthrough, or contributor details.
-
 
 
 
